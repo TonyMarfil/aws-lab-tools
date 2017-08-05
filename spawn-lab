@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for i in $(seq $START $END);
+
+do
+docker run -p 80${i}:80 -p 22${i}:22 -itd -e SNOPS_AUTOCLONE=0 -e emailid=user${i}@f5.test -e shortUrl=$shortUrl --name user${i} f5devcentral/f5-super-netops-container:base /bin/bash;
+docker cp autopilot.sh user${i}:/usr/local/bin/autopilot.sh;
+docker cp bigiptest.sh user${i}:/bigiptest.sh;
+docker exec -it -d user${i} chmod +x /usr/local/bin/autopilot.sh;
+docker exec -it -d user${i} autopilot.sh
+sleep 60m
+docker cp user${i}:/log.out ~/user${i}_log.out
+done
+
