@@ -4,8 +4,8 @@ http://clouddocs.f5.com/training/community/public-cloud/html/class1/class1.html
 
 With the spawn-lab command you can:
 
-- Trigger, run through and destroy cleanly an arbitrary number of labs.
-- Log all of the console output for each lab environment.
+- Trigger, run through and destroy cleanly an arbitrary number of simultaneous labs.
+- Log all the console output for each lab environment.
 - Confirm AWS capacity limits and identify problems early.
 - Prepare a lab variant that bypasses onboarding and starts the students in a working environment.
 
@@ -16,7 +16,7 @@ https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
 
 spawn-lab can run any tmsh commands by editing bigiptest.sh and change the interval at which the commands run by editing autopilot.sh.
 
-Assumming shortUrl is abc123; to launch spawn-lab for 50 users ranging from user11 to user60.
+Assuming shortUrl is abc123; to launch spawn-lab for 50 users ranging from user11 to user60.
 
 .. code-block:: bash
 
