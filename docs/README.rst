@@ -1,4 +1,4 @@
-Automation and testing tools for the F5 "Deploying BIG-IP Virtual Edition" in AWS lab
+Automation and testing tools for the F5 "Deploying BIG-IP Virtual Edition in AWS" lab
 -------------------------------------------------------------------------------------
 http://clouddocs.f5.com/training/community/public-cloud/html/class1/class1.html
 
