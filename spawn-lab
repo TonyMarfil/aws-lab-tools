@@ -10,10 +10,11 @@ docker exec -it -d user${i} chmod +x /usr/local/bin/autopilot.sh;
 docker exec -it -d user${i} autopilot.sh
 done
 
+sleep 60s
+
 for i in $(seq $START $END);
 
 do
-sleep 60m
 docker cp user${i}:/log.out ~/user${i}_log.out
 done
 
