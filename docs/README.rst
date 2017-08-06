@@ -4,10 +4,10 @@ http://clouddocs.f5.com/training/community/public-cloud/html/class1/class1.html
 
 With the spawn-lab command you can:
 
-- Trigger, run through and destroy cleanly an arbitrary number of simultaneous labs.
-- Log all the console output for each lab environment.
-- Confirm AWS capacity limits and identify problems early.
-- Prepare a lab variant that bypasses onboarding and starts the students in a working environment.
++ Trigger, run through and destroy cleanly an arbitrary number of simultaneous labs.
++ Log all the console output for each lab environment.
++ Confirm AWS capacity limits and identify problems early.
++ Prepare a lab variant that bypasses onboarding and starts the students in a working environment.
 
 Tested on Ubuntu 16.04.
 
