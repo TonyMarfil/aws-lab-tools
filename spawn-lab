@@ -10,7 +10,7 @@ docker exec -it -d user${i} chmod +x /usr/local/bin/autopilot.sh;
 docker exec -it -d user${i} autopilot.sh
 done
 
-sleep 60s
+sleep 60m
 
 for i in $(seq $START $END);
 
