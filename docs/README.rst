@@ -46,5 +46,5 @@ You can then ssh to port 22XX to any of the 50 running containers and track prog
 
    cat /log.out | less -R
 
-Example screencast:
+Example asciinema screencast:
 https://asciinema.org/a/aAyoHOfKUjluNK9gaOlP7lErr
