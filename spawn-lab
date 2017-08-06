@@ -8,6 +8,11 @@ docker cp autopilot.sh user${i}:/usr/local/bin/autopilot.sh;
 docker cp bigiptest.sh user${i}:/bigiptest.sh;
 docker exec -it -d user${i} chmod +x /usr/local/bin/autopilot.sh;
 docker exec -it -d user${i} autopilot.sh
+done
+
+for i in $(seq $START $END);
+
+do
 sleep 60m
 docker cp user${i}:/log.out ~/user${i}_log.out
 done
