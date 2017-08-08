@@ -1,7 +1,8 @@
 bash
+tmsh show sys lic
 tmsh show sys ver
 tmsh show ltm virtual-address
-tmsh show sys lic
 cat /var/log/boot.log
+cat /var/log/onboard.log
 exit
 quit
