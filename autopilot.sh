@@ -19,22 +19,25 @@ terraform apply
 duration=$SECONDS
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 sleep 15m
+echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 lab-info
 $(lab-info 2>/dev/null | grep ssh -m1 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m2 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m3 | tail -n1 | cut -c12-) < /bigiptest.sh
 sleep 15m
+echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 lab-info
 $(lab-info 2>/dev/null | grep ssh -m1 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m2 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m3 | tail -n1 | cut -c12-) < /bigiptest.sh
 
 figlet Triggering autoscale WAF...
-
+echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 wafUrl=$(lab-info | grep "WAF ELB" -A 2 | tail -n2 | cut -c8-)
 base64 /dev/urandom | head -c 3000 > payload
 ab -t 180 -c 200 -c 5 -T 'multipart/form-data; boundary=1234567890' -p payload $wafUrl/
 sleep 15m
+echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 lab-info
 $(lab-info 2>/dev/null | grep ssh -m1 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m2 | tail -n1 | cut -c12-) < /bigiptest.sh
@@ -46,5 +49,5 @@ lab-cleanup
 terraform destroy -force
 terraform destroy -force
 deleteBucket.sh
-
+echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 figlet FIN
