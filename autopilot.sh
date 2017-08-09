@@ -47,3 +47,4 @@ terraform destroy -force
 terraform destroy -force
 deleteBucket.sh
 
+figlet FIN
