@@ -4,5 +4,6 @@ source ~/.profile
 lab-cleanup
 terraform destroy -force
 terraform destroy -force
-deleteBucket.sh
 
+# Do not delete bucket since some buckets were deleted before terraform destroy completed.
+# deleteBucket.sh
