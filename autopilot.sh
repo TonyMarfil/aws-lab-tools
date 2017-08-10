@@ -23,18 +23,22 @@ echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 sleep 15m
 
 duration=$SECONDS
-echo milestone: 1stcd  attempt to ssh to Big-IPs
+echo milestone: 1st attempt to curl the waf url and ssh to Big-IPs
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 lab-info
+wafUrl=$(lab-info | grep "WAF ELB" -A 2 | tail -n2 | cut -c8-)
+curl -kI $wafUrl
 $(lab-info 2>/dev/null | grep ssh -m1 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m2 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m3 | tail -n1 | cut -c12-) < /bigiptest.sh
 sleep 15m
 
 duration=$SECONDS
-echo milestone: 2nd attempt to ssh to Big-IPs
+echo milestone: 2nd attempt to curl the waf url and ssh to Big-IPs
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 lab-info
+wafUrl=$(lab-info | grep "WAF ELB" -A 2 | tail -n2 | cut -c8-)
+curl -kI $wafUrl
 $(lab-info 2>/dev/null | grep ssh -m1 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m2 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m3 | tail -n1 | cut -c12-) < /bigiptest.sh
@@ -50,9 +54,11 @@ ab -t 180 -c 200 -c 5 -T 'multipart/form-data; boundary=1234567890' -p payload $
 sleep 15m
 
 duration=$SECONDS
-echo milestone: 3rd attempt to ssh to Big-IPs
+echo milestone: 3rd attempt to curl teh waf url and ssh to Big-IPs
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 lab-info
+wafUrl=$(lab-info | grep "WAF ELB" -A 2 | tail -n2 | cut -c8-)
+curl -kI $wafUrl
 $(lab-info 2>/dev/null | grep ssh -m1 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m2 | tail -n1 | cut -c12-) < /bigiptest.sh
 $(lab-info 2>/dev/null | grep ssh -m3 | tail -n1 | cut -c12-) < /bigiptest.sh
