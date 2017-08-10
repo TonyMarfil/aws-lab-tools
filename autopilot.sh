@@ -23,7 +23,7 @@ echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 sleep 15m
 
 duration=$SECONDS
-echo milestone: 1st attempt to ssh to Big-IPs
+echo milestone: 1stcd  attempt to ssh to Big-IPs
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 lab-info
 $(lab-info 2>/dev/null | grep ssh -m1 | tail -n1 | cut -c12-) < /bigiptest.sh
@@ -59,12 +59,16 @@ $(lab-info 2>/dev/null | grep ssh -m3 | tail -n1 | cut -c12-) < /bigiptest.sh
 
 figlet Cleaning up and destroying lab...
 
-echo milestone: lab-cleanup / terraform apply begins
+duration=$SECONDS
+echo milestone: lab-cleanup / terraform destroy begins
+echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 lab-cleanup
 terraform destroy -force
 terraform destroy -force
 deleteBucket.sh
 
-echo milestone: lab-cleanup / terraform apply ends
+duration=$SECONDS
+echo milestone: lab-cleanup / terraform destroy ends
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
+
 figlet FIN
